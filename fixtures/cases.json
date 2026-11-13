@@ -1,0 +1,74 @@
+[
+  {
+    "name": "不同字段保留双方修改",
+    "routes": [],
+    "input": {
+      "base": {
+        "note": "原备注",
+        "method": "manual",
+        "container": "glass"
+      },
+      "desired": {
+        "method": "automatic"
+      }
+    },
+    "expected": {
+      "state": "saved",
+      "record": {
+        "note": "现场新备注",
+        "method": "automatic",
+        "container": ""
+      }
+    },
+    "required": [],
+    "kind": "browser",
+    "mode": "independent",
+    "actions": [
+      "save"
+    ],
+    "productNumber": 12
+  },
+  {
+    "name": "同字段不同修改留冲突",
+    "routes": [],
+    "input": {
+      "base": {
+        "note": "原备注"
+      },
+      "desired": {
+        "note": "导入备注"
+      }
+    },
+    "expected": {
+      "state": "conflict",
+      "record": {
+        "note": "现场新备注"
+      }
+    },
+    "required": [],
+    "kind": "browser",
+    "mode": "conflict",
+    "actions": [],
+    "productNumber": 12
+  },
+  {
+    "name": "相同修改无需再写",
+    "routes": [],
+    "input": {
+      "base": {
+        "note": "原备注"
+      },
+      "desired": {
+        "note": "现场新备注"
+      }
+    },
+    "expected": {
+      "state": "unchanged"
+    },
+    "required": [],
+    "kind": "browser",
+    "mode": "same",
+    "actions": [],
+    "productNumber": 12
+  }
+]
